@@ -1,0 +1,51 @@
+{
+  "name": "matreshka-binders-file",
+  "version": "0.0.0",
+  "description": "Matreshka.js binders for file drag'n'drop and file input",
+  "main": "index",
+  "scripts": {
+    "test": "babel-node test && npm run lint",
+    "check-updates": "ncu",
+    "upgrade": "npm run check-updates -- --upgradeAll && npm install",
+    "lint": "eslint . --ext .js --cache --ignore-pattern '**/node_modules/**'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finom/matreshka-binders-file.git"
+  },
+  "keywords": [
+    "matreshka",
+    "file"
+  ],
+  "author": "Andrey Gubanov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/finom/matreshka-binders-file/issues"
+  },
+  "homepage": "https://github.com/finom/matreshka-binders-file#readme",
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-plugin-check-es2015-constants": "^6.8.0",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.8.0",
+    "babel-plugin-transform-es2015-block-scoping": "^6.10.1",
+    "babel-plugin-transform-es2015-computed-properties": "^6.8.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.9.0",
+    "babel-plugin-transform-es2015-modules-simple-commonjs": "^0.3.0",
+    "babel-plugin-transform-es2015-parameters": "^6.11.4",
+    "babel-plugin-transform-es2015-shorthand-properties": "^6.8.0",
+    "babel-plugin-transform-es2015-template-literals": "^6.8.0",
+    "babel-plugin-transform-object-spread-inline": "0.0.2",
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb": "^10.0.0",
+    "eslint-plugin-import": "^1.13.0",
+    "eslint-plugin-jsx-a11y": "^2.1.0",
+    "eslint-plugin-react": "^6.0.0",
+    "jasmine": "^2.4.1",
+    "jsdom": "^9.4.2",
+    "matreshka": "^1.9.1",
+    "npm-check-updates": "^2.8.0"
+},
+"peerDependencies": {
+    "matreshka": "^1.9.1"
+  }
+}
