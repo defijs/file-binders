@@ -14,24 +14,24 @@ describe('file binder', () => {
             type: 'file',
             multiple: false
         });
-        const handler = createSpy(evt => {
-			expect(obj.file.readerResult).toEqual('foo');
+        const handler = createSpy(() => {
+            expect(obj.file.readerResult).toEqual('foo');
             done();
-		});
+        });
 
         Object.defineProperty(node, 'files', {
-			value: [
-				new Blob(['foo'], {
-					type: 'text/plain'
-				})
-			]
-		});
+            value: [
+                new Blob(['foo'], {
+                    type: 'text/plain'
+                })
+            ]
+        });
 
         bindNode(obj, 'file', node, file('text'));
 
-		on(obj, 'change:file', handler);
+        on(obj, 'change:file', handler);
 
-		node.dispatchEvent(new Event('change'));
+        node.dispatchEvent(new Event('change'));
     });
 
     it('removes DOM event handlers when unbindNode is called', done => {
@@ -40,23 +40,23 @@ describe('file binder', () => {
             type: 'file',
             multiple: false
         });
-        const handler = createSpy(evt => {
-			expect(obj.file.readerResult).toEqual('foo');
-		});
+        const handler = createSpy(() => {
+            expect(obj.file.readerResult).toEqual('foo');
+        });
 
         Object.defineProperty(node, 'files', {
-			value: [
-				new Blob(['foo'], {
-					type: 'text/plain'
-				})
-			]
-		});
+            value: [
+                new Blob(['foo'], {
+                    type: 'text/plain'
+                })
+            ]
+        });
 
         bindNode(obj, 'file', node, file('text'));
 
-		on(obj, 'change:file', handler);
+        on(obj, 'change:file', handler);
 
-		node.dispatchEvent(new Event('change'));
+        node.dispatchEvent(new Event('change'));
 
         setTimeout(() => {
             unbindNode(obj, 'file', node, file('text'));
@@ -76,28 +76,28 @@ describe('file binder', () => {
             type: 'file',
             multiple: true
         });
-        const handler = createSpy(evt => {
-			expect(obj.files[0].readerResult).toEqual('foo');
+        const handler = createSpy(() => {
+            expect(obj.files[0].readerResult).toEqual('foo');
             expect(obj.files[1].readerResult).toEqual('bar');
             done();
-		});
+        });
 
         Object.defineProperty(node, 'files', {
-			value: [
+            value: [
                 new Blob(['foo'], {
-					type: 'text/plain'
-				}),
+                    type: 'text/plain'
+                }),
                 new Blob(['bar'], {
-					type: 'text/plain'
-				})
-			]
-		});
+                    type: 'text/plain'
+                })
+            ]
+        });
 
         bindNode(obj, 'files', node, file('text'));
 
-		on(obj, 'change:files', handler);
+        on(obj, 'change:files', handler);
 
-		node.dispatchEvent(new Event('change'));
+        node.dispatchEvent(new Event('change'));
     });
 
     it('allows to bind file input with no reading', done => {
@@ -106,24 +106,24 @@ describe('file binder', () => {
             type: 'file',
             multiple: false
         });
-        const handler = createSpy(evt => {
-			expect(obj.file.readerResult).toEqual(undefined);
+        const handler = createSpy(() => {
+            expect(obj.file.readerResult).toEqual(undefined);
             done();
-		});
+        });
 
         Object.defineProperty(node, 'files', {
-			value: [
-				new Blob(['foo'], {
-					type: 'text/plain'
-				})
-			]
-		});
+            value: [
+                new Blob(['foo'], {
+                    type: 'text/plain'
+                })
+            ]
+        });
 
         bindNode(obj, 'file', node, file());
 
-		on(obj, 'change:file', handler);
+        on(obj, 'change:file', handler);
 
-		node.dispatchEvent(new Event('change'));
+        node.dispatchEvent(new Event('change'));
     });
 
     it('assigns null to bound property if files are not esist', () => {
@@ -134,12 +134,12 @@ describe('file binder', () => {
         });
 
         Object.defineProperty(node, 'files', {
-			value: []
-		});
+            value: []
+        });
 
         bindNode(obj, 'file', node, file('text'));
 
-		node.dispatchEvent(new Event('change'));
+        node.dispatchEvent(new Event('change'));
 
         expect(obj.file).toEqual(null);
     });
@@ -152,8 +152,8 @@ describe('file binder', () => {
         });
 
         Object.defineProperty(node, 'files', {
-			value: []
-		});
+            value: []
+        });
 
         expect(() => {
             bindNode(obj, 'file', node, file('wat'));

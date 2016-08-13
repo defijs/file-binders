@@ -7,21 +7,21 @@ function createDropHandler({
 }) {
     return function dropHandler(event) {
         event.preventDefault();
-		const files = event.dataTransfer.files;
+        const files = event.dataTransfer.files;
 
-		if (files.length) {
-		    readFiles(files, methodName, callback);
-		} else {
-			callback([]);
-		}
-    }
+        if (files.length) {
+            readFiles(files, methodName, callback);
+        } else {
+            callback([]);
+        }
+    };
 }
 
 function createDragoverHandler() {
     return function dragoverHandler(event) {
         event.preventDefault();
-		event.dataTransfer.dropEffect = 'copy';
-    }
+        event.dataTransfer.dropEffect = 'copy'; // eslint-disable-line no-param-reassign
+    };
 }
 
 export default function dropFilesBinder(readAs) {
@@ -45,8 +45,8 @@ export default function dropFilesBinder(readAs) {
             this.removeEventListener('dragover', dragoverHandler);
         },
         getValue({ domEvent }) {
-			return domEvent || [];
-		},
+            return domEvent || [];
+        },
         setValue: null
-    }
+    };
 }

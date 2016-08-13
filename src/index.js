@@ -1,9 +1,10 @@
+/* globals Matreshka */
 import file from './file';
 import dropFiles from './dropfiles';
 import dragOver from './dragover';
 
 // extend binders object in browser environment
-if(typeof Matreshka === 'function') {
+if (typeof Matreshka === 'function') {
     const { binders } = Matreshka;
 
     binders.file = file;
@@ -16,4 +17,4 @@ module.exports = {
     file,
     dropFiles,
     dragOver
-}
+};

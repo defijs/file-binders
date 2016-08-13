@@ -7,10 +7,10 @@
     "unit": "babel-node node_modules/.bin/babel-istanbul cover test/index.js --report html",
     "check-updates": "ncu",
     "upgrade": "npm run check-updates -- --upgradeAll && npm install",
-    "lint": "eslint . --ext .js --cache --ignore-pattern '**/node_modules/**'",
+    "lint": "eslint ./test ./src",
     "compile-npm": "babel src -d npm",
     "bundle": "webpack",
-    "publish": "npm test && rimraf npm/*.js npm/README.md && copy README.md npm && npm run compile-npm && npm run bundle && cd npm && npm publish && cd .. ## && git commit -am 'publishing new version'"
+    "publish": "npm test && rimraf npm/*.js npm/README.md bundle/* && copy README.md npm && npm run compile-npm && npm run bundle && cd npm && npm publish && cd .. && git commit -am 'publishing new version'"
   },
   "repository": {
     "type": "git",

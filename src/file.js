@@ -5,15 +5,15 @@ function createFileChangeHandler({
     callback,
     methodName
 }) {
-    return function fileChangeHandler(event) {
+    return function fileChangeHandler() {
         const { files } = this;
 
         if (files.length) {
-			readFiles(files, methodName, callback);
-		} else {
-			callback([]);
-		}
-    }
+            readFiles(files, methodName, callback);
+        } else {
+            callback([]);
+        }
+    };
 }
 
 export default function fileBinder(readAs) {
@@ -33,8 +33,8 @@ export default function fileBinder(readAs) {
         },
         getValue({ domEvent }) {
             const files = domEvent || [];
-			return this.multiple ? files : files[0] || null;
+            return this.multiple ? files : files[0] || null;
         },
         setValue: null
-    }
+    };
 }

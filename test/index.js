@@ -5,7 +5,6 @@ const jasmine = new Jasmine();
 
 global.document = jsdom('<!doctype html><html><body></body></html>');
 global.window = global.document.defaultView;
-global.FileReader = global.window.FileReader;
 
 jasmine.loadConfig({
     spec_dir: 'test',
