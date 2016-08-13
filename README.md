@@ -1,7 +1,42 @@
 # matreshka-binders-file
 
-Matreshka.js binders for file drag'n'drop and file input
-In active development...
+The project includes 3 binders which allow to easily deal with files.
+
+## Using
+In browser environment (or whatever environment where ``Matreshka`` is global variable) these binders extend ``Matreshka.binders`` object.
+```html
+<!-- the file can be found at bundle/ folder -->
+<script src="path/to/matreshka-binders-file.min.js"></script>
+```
+
+```js
+const { file, dropFiles, dragOver } = Matreshka.binders;
+// ...
+this.bindNode('file', node, file());
+
+// if you don't want to create variables
+this.bindNode('file', node, Matreshka.binders.file());
+```
+
+In CJS environment ``Matreshka.binders`` is not extended (following best practices and avoiding naming collisions).
+
+```
+npm install --save matreshka-binders-file
+```
+
+```js
+// import all binders
+const { file, dropFiles, dragOver } = require('matreshka-binders-file');
+
+// import only needed binders
+const file = require('matreshka-binders-file/file');
+const dropFiles = require('matreshka-binders-file/dropfiles');
+const dragOver = require('matreshka-binders-file/dragover');
+
+// ...
+
+this.bindNode('file', node, files());
+```
 
 ## ``file(readAs)``
 Returns a binder for file input. The binder allows not only to get basic data about a file, but also to read it without calling ``FileReader`` manually.
@@ -15,7 +50,7 @@ The file (native ``File``) or an array of files becomes the final value of the p
 
 ### Example
 ```js
-this.bindNode('myKey', '.my-file', MK.binders.file('dataURL'));
+this.bindNode('myKey', '.my-file', file('dataURL'));
 // ... user changes input content
 // choosing my-image.png from file system ...
 this.on('change:myKey', function() {
@@ -41,7 +76,7 @@ Returns binder which allows to drop files from a file manager to given element. 
 
 ### Example
 ```js
-this.bindNode('myKey', '.drop-area', MK.binders.dropFiles('dataURL'));
+this.bindNode('myKey', '.drop-area', dropFiles('dataURL'));
 // ... user drops one file called
 // "my-image.png" into .drop-area block
 this.on('change:myKey', function() {
@@ -66,7 +101,7 @@ none
 
 ### Examples
 ```js
-this.bindNode('myKey', '.my-node', MK.binders.dragOver());
+this.bindNode('myKey', '.my-node', dragOver());
 this.on('change:myKey', function() {
 	if(this.myKey) {
 		console.log('something is dragging over .my-node');
@@ -78,6 +113,6 @@ this.on('change:myKey', function() {
 Add dragovered class name when file (or another draggable object) is dragged over .my-node
 
 ```js
-this.bindNode('myKey', '.my-node', MK.binders.dragOver());
-this.bindNode('myKey', '.my-node', MK.binders.className('dragovered'));
+this.bindNode('myKey', '.my-node', dragOver());
+this.bindNode('myKey', '.my-node', className('dragovered'));
 ```
