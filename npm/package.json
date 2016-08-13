@@ -1,0 +1,28 @@
+{
+  "name": "matreshka-binders-file",
+  "version": "0.0.0",
+  "description": "Matreshka.js binders for drag'n'drop and file input",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Check out repository for tests\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finom/matreshka-binders-file.git"
+  },
+  "keywords": [
+    "matreshka",
+    "binder",
+    "file",
+    "drag'n'drop"
+  ],
+  "author": "Andrey Gubanov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/finom/matreshka-binders-file/issues"
+  },
+  "homepage": "https://github.com/finom/matreshka-binders-file#readme",
+  "peerDependencies": {
+    "matreshka": "^1.9.1"
+  }
+}

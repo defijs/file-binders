@@ -24,7 +24,7 @@ function createDragoverHandler() {
     }
 }
 
-export default function dropFilesBinder() {
+export default function dropFilesBinder(readAs) {
     const methodName = readAs ? getFileReaderMethodName(readAs) : null;
     let dropHandler;
     let dragoverHandler;
@@ -43,9 +43,6 @@ export default function dropFilesBinder() {
         destroy() {
             this.removeEventListener('drop', dropHandler);
             this.removeEventListener('dragover', dragoverHandler);
-
-            delete dropHandler;
-            delete dragoverHandler;
         },
         getValue({ domEvent }) {
 			return domEvent || [];

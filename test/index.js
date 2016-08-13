@@ -3,11 +3,13 @@ const { jsdom } = require('jsdom');
 
 const jasmine = new Jasmine();
 
-global.window = jsdom('<!doctype html><html><body></body></html>').defaultView;
+global.document = jsdom('<!doctype html><html><body></body></html>');
+global.window = global.document.defaultView;
+global.FileReader = global.window.FileReader;
 
 jasmine.loadConfig({
     spec_dir: 'test',
-    spec_files: ['spec/*.js']
+    spec_files: ['spec/*_spec.js']
 });
 
 jasmine.execute();

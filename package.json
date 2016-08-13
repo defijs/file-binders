@@ -1,22 +1,20 @@
 {
   "name": "matreshka-binders-file",
-  "version": "0.0.0",
-  "description": "Matreshka.js binders for file drag'n'drop and file input",
-  "main": "index",
+  "private": true,
+  "version": "0.0.0-no-versioning",
   "scripts": {
-    "test": "babel-node test && npm run lint",
+    "test": "babel-node test ",
     "check-updates": "ncu",
     "upgrade": "npm run check-updates -- --upgradeAll && npm install",
-    "lint": "eslint . --ext .js --cache --ignore-pattern '**/node_modules/**'"
+    "lint": "eslint . --ext .js --cache --ignore-pattern '**/node_modules/**'",
+    "compile-npm": "babel src -d npm",
+    "bundle": "webpack",
+    "publish": "npm test && rimraf npm/*.js npm/README.md && copy README.md npm && npm run compile-npm && npm run bundle && cd npm && npm publish && cd .. ## && git commit -am 'publishing new version'"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/finom/matreshka-binders-file.git"
   },
-  "keywords": [
-    "matreshka",
-    "file"
-  ],
   "author": "Andrey Gubanov",
   "license": "MIT",
   "bugs": {
@@ -25,6 +23,7 @@
   "homepage": "https://github.com/finom/matreshka-binders-file#readme",
   "devDependencies": {
     "babel-cli": "^6.11.4",
+    "babel-loader": "^6.2.4",
     "babel-plugin-check-es2015-constants": "^6.8.0",
     "babel-plugin-transform-es2015-arrow-functions": "^6.8.0",
     "babel-plugin-transform-es2015-block-scoping": "^6.10.1",
@@ -35,6 +34,7 @@
     "babel-plugin-transform-es2015-shorthand-properties": "^6.8.0",
     "babel-plugin-transform-es2015-template-literals": "^6.8.0",
     "babel-plugin-transform-object-spread-inline": "0.0.2",
+    "copy": "^0.3.0",
     "eslint": "^3.2.2",
     "eslint-config-airbnb": "^10.0.0",
     "eslint-plugin-import": "^1.13.0",
@@ -42,10 +42,10 @@
     "eslint-plugin-react": "^6.0.0",
     "jasmine": "^2.4.1",
     "jsdom": "^9.4.2",
+    "makeelement": "0.0.1",
     "matreshka": "^1.9.1",
-    "npm-check-updates": "^2.8.0"
-},
-"peerDependencies": {
-    "matreshka": "^1.9.1"
+    "npm-check-updates": "^2.8.0",
+    "rimraf": "^2.5.4",
+    "webpack": "^1.13.1"
   }
 }

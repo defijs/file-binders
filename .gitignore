@@ -35,3 +35,7 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Ignore files for NPM
+npm/*.js
+npm/README.md

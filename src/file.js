@@ -6,7 +6,7 @@ function createFileChangeHandler({
     methodName
 }) {
     return function fileChangeHandler(event) {
-        const { files } = event.target;
+        const { files } = this;
 
         if (files.length) {
 			readFiles(files, methodName, callback);
@@ -26,12 +26,10 @@ export default function fileBinder(readAs) {
                 callback,
                 methodName
             });
-
             this.addEventListener('change', fileChangeHandler);
         },
         destroy() {
             this.removeEventListener('change', fileChangeHandler);
-            delete fileChangeHandler;
         },
         getValue({ domEvent }) {
             const files = domEvent || [];

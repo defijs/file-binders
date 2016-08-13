@@ -8,13 +8,14 @@ export default function readFiles(files, fileReaderMethodName, callback) {
             const reader = new FileReader();
             const file = files[i];
 
-            reader.onloadend = (evt) => {
+            arrayOfFiles[i] = file;
+
+            reader.addEventListener('loadend', (evt) => {
 				file.readerResult = reader.result;
-				if (++j == length) {
+				if (++j === length) {
 					callback(arrayOfFiles);
-                    reader.onloadend = null;
 				}
-			};
+			});
 
             reader[fileReaderMethodName](file)
         }
@@ -22,7 +23,7 @@ export default function readFiles(files, fileReaderMethodName, callback) {
         for(let i = 0; i < length; i++) {
             arrayOfFiles[i] = files[i];
         }
-        
+
         callback(arrayOfFiles);
     }
 }
