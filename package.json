@@ -10,7 +10,8 @@
     "lint": "eslint ./test ./src",
     "compile-npm": "babel src -d npm",
     "bundle": "webpack",
-    "publish": "npm test && rimraf npm/*.js npm/README.md bundle/* && copy README.md npm && npm run compile-npm && npm run bundle && cd npm && npm publish && cd .. && git commit -am 'publishing new version'"
+    "copy-readme": "ncp ./README.md ./npm/README.md",
+    "release": "npm test && rimraf npm/*.js npm/README.md bundle/* && npm run copy-readme && npm run compile-npm && npm run bundle && cd npm && npm publish && cd .. && git commit -am 'publishing new version'"
   },
   "repository": {
     "type": "git",
@@ -36,7 +37,6 @@
     "babel-plugin-transform-es2015-shorthand-properties": "^6.8.0",
     "babel-plugin-transform-es2015-template-literals": "^6.8.0",
     "babel-plugin-transform-object-spread-inline": "0.0.2",
-    "copy": "^0.3.0",
     "eslint": "^3.2.2",
     "eslint-config-airbnb": "^10.0.0",
     "eslint-plugin-import": "^1.13.0",
@@ -46,6 +46,7 @@
     "jsdom": "^9.4.2",
     "makeelement": "0.0.1",
     "matreshka": "^1.9.1",
+    "ncp": "^2.0.0",
     "npm-check-updates": "^2.8.0",
     "rimraf": "^2.5.4",
     "webpack": "^1.13.1"
