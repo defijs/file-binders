@@ -2,8 +2,8 @@
 
 The project includes 3 binders which allow to easily deal with files.
 
-## Using
-In browser environment (or whatever environment where ``Matreshka`` is global variable) these binders extend ``Matreshka.binders`` object.
+## Usage
+In **browser environment** (or whatever environment where ``Matreshka`` is global variable) these binders extend ``Matreshka.binders`` object.
 ```html
 <!-- the file can be found at bundle/ folder -->
 <script src="path/to/matreshka-binders-file.min.js"></script>
@@ -18,7 +18,9 @@ this.bindNode('file', node, file());
 this.bindNode('file', node, Matreshka.binders.file());
 ```
 
-In CJS environment ``Matreshka.binders`` is not extended (following best practices and avoiding naming collisions).
+-------------
+
+In **CJS environment** ``Matreshka.binders`` is not extended (following best practices and avoiding naming collisions).
 
 ```
 npm install --save matreshka-binders-file
