@@ -1,5 +1,6 @@
 import makeElement from 'makeelement';
 import bindNode from '../../../matreshka_refactoring/src/bindnode';
+import unbindNode from '../../../matreshka_refactoring/src/unbindnode';
 import on from '../../../matreshka_refactoring/src/on';
 import file from '../../src/file';
 import createSpy from './createspy';
@@ -15,7 +16,6 @@ describe('file binder', () => {
         });
         const handler = createSpy(evt => {
 			expect(obj.file.readerResult).toEqual('foo');
-            expect(handler).toHaveBeenCalledTimes(1);
             done();
 		});
 
@@ -34,6 +34,42 @@ describe('file binder', () => {
 		node.dispatchEvent(new Event('change'));
     });
 
+    it('removes DOM event handlers when unbindNode is called', done => {
+        const obj = {};
+        const node = makeElement('input', {
+            type: 'file',
+            multiple: false
+        });
+        const handler = createSpy(evt => {
+			expect(obj.file.readerResult).toEqual('foo');
+		});
+
+        Object.defineProperty(node, 'files', {
+			value: [
+				new Blob(['foo'], {
+					type: 'text/plain'
+				})
+			]
+		});
+
+        bindNode(obj, 'file', node, file('text'));
+
+		on(obj, 'change:file', handler);
+
+		node.dispatchEvent(new Event('change'));
+
+        setTimeout(() => {
+            unbindNode(obj, 'file', node, file('text'));
+
+            node.dispatchEvent(new Event('change'));
+
+            setTimeout(() => {
+                expect(handler).toHaveBeenCalledTimes(1);
+                done();
+            }, 200);
+        }, 200);
+    });
+
     it('allows to bind file input with multiple=true', done => {
         const obj = {};
         const node = makeElement('input', {
@@ -41,7 +77,6 @@ describe('file binder', () => {
             multiple: true
         });
         const handler = createSpy(evt => {
-            expect(handler).toHaveBeenCalledTimes(1);
 			expect(obj.files[0].readerResult).toEqual('foo');
             expect(obj.files[1].readerResult).toEqual('bar');
             done();
@@ -73,7 +108,6 @@ describe('file binder', () => {
         });
         const handler = createSpy(evt => {
 			expect(obj.file.readerResult).toEqual(undefined);
-            expect(handler).toHaveBeenCalledTimes(1);
             done();
 		});
 

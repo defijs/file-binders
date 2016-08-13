@@ -1,5 +1,6 @@
 import makeElement from 'makeelement';
 import bindNode from '../../../matreshka_refactoring/src/bindnode';
+import unbindNode from '../../../matreshka_refactoring/src/unbindnode';
 import on from '../../../matreshka_refactoring/src/on';
 import dropFiles from '../../src/dropfiles';
 import createSpy from './createspy';
@@ -11,16 +12,16 @@ describe('dropFiles binder', () => {
         const obj = {};
         const node = makeElement('div');
         const handler = createSpy(evt => {
-            expect(handler).toHaveBeenCalledTimes(1);
 			expect(obj.files[0].readerResult).toEqual('foo');
             expect(obj.files[1].readerResult).toEqual('bar');
             done();
 		});
 
-
         bindNode(obj, 'files', node, dropFiles('text'));
 
 		on(obj, 'change:files', handler);
+
+        node.dispatchEvent(new Event('dragover'));
 
 		node.dispatchEvent(Object.assign(new Event('drop'), {
             dataTransfer: {
@@ -40,15 +41,15 @@ describe('dropFiles binder', () => {
         const obj = {};
         const node = makeElement('div');
         const handler = createSpy(evt => {
-            expect(handler).toHaveBeenCalledTimes(1);
 			expect(obj.files[0].readerResult).toEqual(undefined);
             done();
 		});
 
-
         bindNode(obj, 'files', node, dropFiles());
 
 		on(obj, 'change:files', handler);
+
+        node.dispatchEvent(new Event('dragover'));
 
 		node.dispatchEvent(Object.assign(new Event('drop'), {
             dataTransfer: {
@@ -59,6 +60,51 @@ describe('dropFiles binder', () => {
     			]
             }
         }));
+    });
+
+    it('removes DOM event handlers when unbindNode is called', done => {
+        const obj = {};
+        const node = makeElement('div');
+        const handler = createSpy(evt => {
+			expect(obj.files[0].readerResult).toEqual(undefined);
+		});
+
+        bindNode(obj, 'files', node, dropFiles());
+
+		on(obj, 'change:files', handler);
+
+        node.dispatchEvent(new Event('dragover'));
+
+		node.dispatchEvent(Object.assign(new Event('drop'), {
+            dataTransfer: {
+                files: [
+                    new Blob(['foo'], {
+    					type: 'text/plain'
+    				})
+    			]
+            }
+        }));
+
+        unbindNode(obj, 'files', node);
+
+        setTimeout(() => {
+            node.dispatchEvent(new Event('dragover'));
+
+    		node.dispatchEvent(Object.assign(new Event('drop'), {
+                dataTransfer: {
+                    files: [
+                        new Blob(['bar'], {
+        					type: 'text/plain'
+        				})
+        			]
+                }
+            }));
+
+            setTimeout(() => {
+                expect(handler).toHaveBeenCalledTimes(1);
+                done();
+            }, 200)
+        }, 200);
     });
 
     it('throws an error if filereader method does not exist', () => {
