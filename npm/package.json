@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/finom/matreshka-binders-file.git"
+    "url": "git+https://github.com/matreshka/matreshka-binders-file.git"
   },
   "keywords": [
     "matreshka",
@@ -19,9 +19,9 @@
   "author": "Andrey Gubanov",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/finom/matreshka-binders-file/issues"
+    "url": "https://github.com/matreshka/matreshka-binders-file/issues"
   },
-  "homepage": "https://github.com/finom/matreshka-binders-file#readme",
+  "homepage": "https://github.com/matreshka/matreshka-binders-file#readme",
   "peerDependencies": {
     "matreshka": "^2.0.0-prealpha.17"
   }
