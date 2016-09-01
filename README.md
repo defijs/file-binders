@@ -1,4 +1,4 @@
-# matreshka-binders-file
+# matreshka-binders-file [![npm version](https://badge.fury.io/js/matreshka-binders-file.svg)](https://badge.fury.io/js/matreshka-binders-file)
 
 The project includes 3 binders which allow to easily deal with files.
 
