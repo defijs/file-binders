@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/finom/matreshka-binders-file#readme",
   "peerDependencies": {
-    "matreshka": "^1.9.1"
+    "matreshka": "^2.0.0-prealpha.17"
   }
 }
