@@ -20,7 +20,7 @@ this.bindNode('file', node, Matreshka.binders.file());
 
 -------------
 
-In **CJS environment** ``Matreshka.binders`` is not extended (following best practices and avoiding naming collisions).
+In **CJS environment** ``Matreshka.binders`` is not extended.
 
 ```
 npm install --save matreshka-binders-file
@@ -71,10 +71,10 @@ this.on('change:myKey', function() {
 
 
 ## ``dropFiles(readAs)``
-Returns binder which allows to drop files from a file manager to given element. After ``bindNode`` is called the HTML block gets needed DOM event listeners (eg, "dragover" and "drop"). When user drops files from file manager into the block, the property gets an array of dropped files as its value. As like ``file`` the binder accepts one optional argument called ``readAs`` which says how the files need to be read by ``FileReader``: data URI, Blob... (the result of reading is placed in ``readerResult`` property of every file). If ``readAs`` isn't given, the property gets an array of files which wasn't read.
+Returns a binder which allows to drop files from a file manager to given element. After ``bindNode`` is called HTML block gets needed DOM event listeners (eg, "dragover" and "drop"). When user drops files from file manager into the block, the property gets an array of dropped files as its value. As like ``file`` the binder accepts one optional argument called ``readAs`` which says how the files need to be read by ``FileReader``: data URI, Blob... (the result of reading is placed in ``readerResult`` property of every file). If ``readAs`` isn't given, the property gets an array of files which wasn't read.
 
 ### Arguments
-``readAs`` [optional] (string) - the argument value can be "arrayBufer", "binaryString", "dataURL", "text". The value depends on the presence of corresponding methods of the ``FileReader`` prototype.
+``readAs`` [optional] (string) - the argument value can be ``"arrayBufer"``, ``"binaryString"``, ``"dataURL"``, ``"text"``. The value depends on the presence of corresponding methods of the ``FileReader`` prototype.
 
 ### Example
 ```js
@@ -96,7 +96,7 @@ this.on('change:myKey', function() {
 ```
 
 ## ``dragOver()``
-Makes given property equal to true when something is dragged over given node.
+Makes given property equal to ``true`` when something is dragged over given node.
 
 ### Arguments
 none
