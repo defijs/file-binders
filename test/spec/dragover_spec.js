@@ -1,5 +1,5 @@
 import makeElement from 'makeelement';
-import bindNode from '../../../matreshka_refactoring/src/bindnode';
+import bindNode from 'matreshka/bindnode';
 import dragOver from '../../src/dragover';
 
 describe('dragOver binder', () => {
@@ -14,7 +14,9 @@ describe('dragOver binder', () => {
     it('bound property gets correct values on corresponding events', () => {
         const obj = {};
 
-        bindNode(obj, 'dragovered', node, dragOver());
+        bindNode(obj, 'dragovered', node, dragOver(), {
+            debounceGetValue: false
+        });
 
         expect(obj.dragovered).toEqual(false, 'should be false by default');
 

@@ -1,7 +1,7 @@
 import makeElement from 'makeelement';
-import bindNode from '../../../matreshka_refactoring/src/bindnode';
-import unbindNode from '../../../matreshka_refactoring/src/unbindnode';
-import on from '../../../matreshka_refactoring/src/on';
+import bindNode from 'matreshka/bindnode';
+import unbindNode from 'matreshka/unbindnode';
+import on from 'matreshka/on';
 import dropFiles from '../../src/dropfiles';
 import createSpy from './createspy';
 

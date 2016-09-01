@@ -4,14 +4,14 @@
   "version": "0.0.0-no-versioning",
   "scripts": {
     "test": "npm run unit && npm run lint",
-    "unit": "babel-node node_modules/.bin/babel-istanbul cover test/index.js --report html",
+    "unit": "babel-node node_modules/.bin/babel-istanbul cover test/index.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "check-updates": "ncu",
     "upgrade": "npm run check-updates -- --upgradeAll && npm install",
     "lint": "eslint ./test ./src",
     "compile-npm": "babel src -d npm",
     "bundle": "webpack",
     "copy-readme": "ncp ./README.md ./npm/README.md",
-    "release": "npm test && rimraf npm/*.js npm/README.md bundle/* && npm run copy-readme && npm run compile-npm && npm run bundle && cd npm && npm publish && cd .. && git commit -am 'publishing new version'"
+    "release": "npm test && rimraf npm/*.js npm/README.md bundle/* && npm run copy-readme && npm run compile-npm && npm run bundle && cd npm && npm publish && cd .. && git commit -m 'Publishing ${npm_package_version}'"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "babel-plugin-transform-es2015-shorthand-properties": "^6.8.0",
     "babel-plugin-transform-es2015-template-literals": "^6.8.0",
     "babel-plugin-transform-object-spread-inline": "0.0.2",
+    "coveralls": "^2.11.12",
     "eslint": "^3.2.2",
     "eslint-config-airbnb": "^10.0.0",
     "eslint-plugin-import": "^1.13.0",
@@ -45,7 +46,7 @@
     "jasmine": "^2.4.1",
     "jsdom": "^9.4.2",
     "makeelement": "0.0.1",
-    "matreshka": "^1.9.1",
+    "matreshka": "^2.0.0-prealpha.17",
     "ncp": "^2.0.0",
     "npm-check-updates": "^2.8.0",
     "rimraf": "^2.5.4",
