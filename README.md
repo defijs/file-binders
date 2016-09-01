@@ -1,4 +1,4 @@
-# matreshka-binders-file [![npm version](https://badge.fury.io/js/matreshka-binders-file.svg)](https://badge.fury.io/js/matreshka-binders-file) [![Build Status](https://travis-ci.org/matreshkajs/matreshka-binders-file.svg?branch=master)](https://travis-ci.org/matreshkajs/matreshka-binders-file)
+# matreshka-binders-file [![npm version](https://badge.fury.io/js/matreshka-binders-file.svg)](https://badge.fury.io/js/matreshka-binders-file) [![Build Status](https://travis-ci.org/matreshkajs/matreshka-binders-file.svg?branch=master)](https://travis-ci.org/matreshkajs/matreshka-binders-file) [![Coverage Status](https://coveralls.io/repos/github/matreshkajs/matreshka-binders-file/badge.svg?branch=master)](https://coveralls.io/github/matreshkajs/matreshka-binders-file?branch=master)
 
 The project includes 3 binders which allow to easily deal with files.
 
