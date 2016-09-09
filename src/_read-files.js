@@ -9,7 +9,8 @@ export default function readFiles(files, fileReaderMethodName, callback) {
     }) {
         return function loadendHandler() {
             file.readerResult = reader.result; // eslint-disable-line no-param-reassign
-            if (++j === length) {
+            j += 1;
+            if (j === length) {
                 callback(arrayOfFiles);
             }
 
@@ -18,7 +19,7 @@ export default function readFiles(files, fileReaderMethodName, callback) {
     }
 
     if (fileReaderMethodName) {
-        for (let i = 0; i < length; i++) {
+        for (let i = 0; i < length; i += 1) {
             const reader = new window.FileReader();
             const file = files[i];
 
@@ -32,7 +33,7 @@ export default function readFiles(files, fileReaderMethodName, callback) {
             reader[fileReaderMethodName](file);
         }
     } else {
-        for (let i = 0; i < length; i++) {
+        for (let i = 0; i < length; i += 1) {
             arrayOfFiles[i] = files[i];
         }
 
