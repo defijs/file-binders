@@ -39,7 +39,7 @@
     "babel-plugin-transform-object-spread-inline": "0.0.2",
     "coveralls": "^2.11.12",
     "eslint": "^3.4.0",
-    "eslint-config-airbnb": "^11.0.0",
+    "eslint-config-airbnb": "^11.2.0",
     "eslint-plugin-import": "^1.15.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.2.1",
