@@ -9,11 +9,7 @@ function createDropHandler({
         event.preventDefault();
         const files = event.dataTransfer.files;
 
-        if (files.length) {
-            readFiles(files, methodName, callback);
-        } else {
-            callback([]);
-        }
+        readFiles(files, methodName, callback);
     };
 }
 
