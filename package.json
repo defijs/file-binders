@@ -1,6 +1,5 @@
 {
   "name": "matreshka-binders-file",
-  "version": "0.0.0-auto",
   "scripts": {
     "test": "npm run unit && npm run lint",
     "unit": "babel-node node_modules/.bin/babel-istanbul cover test/index.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
@@ -9,18 +8,19 @@
     "lint": "eslint ./test ./src",
     "compile-npm": "babel src -d .",
     "bundle": "webpack",
-    "release": "npm test && rimraf bundle/* && npm run copy-readme && npm run compile-npm && npm run bundle && cd npm && npm publish && cd .. && git commit -m 'Publishing ${npm_package_version}'"
+    "release": "npm test && rimraf bundle/* && npm run copy-readme && npm run compile-npm && npm run bundle && cd npm && npm publish && cd .. && git commit -m 'Publishing ${npm_package_version}'",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matreshka/matreshka-binders-file.git"
+    "url": "https://github.com/matreshkajs/matreshka-binders-file.git"
   },
   "author": "Andrey Gubanov",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/matreshka/matreshka-binders-file/issues"
+    "url": "https://github.com/matreshkajs/matreshka-binders-file/issues"
   },
-  "homepage": "https://github.com/matreshka/matreshka-binders-file#readme",
+  "homepage": "https://github.com/matreshkajs/matreshka-binders-file#readme",
   "devDependencies": {
     "babel-cli": "^6.14.0",
     "babel-istanbul": "^0.11.0",
@@ -48,6 +48,7 @@
     "ncp": "^2.0.0",
     "npm-check-updates": "^2.8.0",
     "rimraf": "^2.5.4",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "semantic-release": "^4.3.5"
   }
 }
