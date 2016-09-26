@@ -8,6 +8,7 @@ This branch contains minified bundle of [matreshka-binders-file](https://github.
 
 ```html
 <!-- do not do this on production -->
-<script src="https://matreshkajs.github.io/matreshka-binders-file/matreshka-binders-file.min.js"></script>
+<script src="https://matreshkajs.github.io/matreshka-binders-file/matreshka-binders-file.min.js">
+</script>
 ```
 
