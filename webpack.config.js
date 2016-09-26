@@ -5,9 +5,11 @@ const webpack = require('webpack');
 module.exports = {
 	devtool: 'source-map',
 	entry: './src/index',
+	externals,
 	output: {
 		path: `${__dirname}/bundle`,
-		filename: "matreshka-binders-file.min.js"
+		filename: 'matreshka-binders-file.min.js',
+		libraryTarget: 'umd'
 	},
 	module: {
 		loaders: [
@@ -19,6 +21,10 @@ module.exports = {
 	},
 
 	plugins: [
-
+		new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
 	]
 };
