@@ -8,7 +8,7 @@ import createSpy from './createspy';
 describe('dropFiles binder', () => {
     const { Event, Blob } = window;
 
-    it('allows to bind and drop', done => {
+    it('allows to bind and drop', (done) => {
         const obj = {};
         const node = makeElement('div');
         const handler = createSpy(() => {
@@ -37,7 +37,7 @@ describe('dropFiles binder', () => {
         }));
     });
 
-    it('allows bind and drop with no reading', done => {
+    it('allows bind and drop with no reading', (done) => {
         const obj = {};
         const node = makeElement('div');
         const handler = createSpy(() => {
@@ -62,7 +62,7 @@ describe('dropFiles binder', () => {
         }));
     });
 
-    it('removes DOM event handlers when unbindNode is called', done => {
+    it('removes DOM event handlers when unbindNode is called', (done) => {
         const obj = {};
         const node = makeElement('div');
         const handler = createSpy(() => {

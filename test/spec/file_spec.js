@@ -8,7 +8,7 @@ import createSpy from './createspy';
 describe('file binder', () => {
     const { Event, Blob } = window;
 
-    it('allows to bind file input', done => {
+    it('allows to bind file input', (done) => {
         const obj = {};
         const node = makeElement('input', {
             type: 'file',
@@ -34,7 +34,7 @@ describe('file binder', () => {
         node.dispatchEvent(new Event('change'));
     });
 
-    it('removes DOM event handlers when unbindNode is called', done => {
+    it('removes DOM event handlers when unbindNode is called', (done) => {
         const obj = {};
         const node = makeElement('input', {
             type: 'file',
@@ -70,7 +70,7 @@ describe('file binder', () => {
         }, 200);
     });
 
-    it('allows to bind file input with multiple=true', done => {
+    it('allows to bind file input with multiple=true', (done) => {
         const obj = {};
         const node = makeElement('input', {
             type: 'file',
@@ -100,7 +100,7 @@ describe('file binder', () => {
         node.dispatchEvent(new Event('change'));
     });
 
-    it('allows to bind file input with no reading', done => {
+    it('allows to bind file input with no reading', (done) => {
         const obj = {};
         const node = makeElement('input', {
             type: 'file',
