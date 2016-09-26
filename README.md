@@ -5,7 +5,6 @@ The project includes 3 binders which allow to easily deal with files.
 ## Usage
 In **browser environment** (or whatever environment where ``Matreshka`` is global variable) these binders extend ``Matreshka.binders`` object.
 ```html
-<!-- the file can be found at bundle/ folder -->
 <script src="path/to/matreshka-binders-file.min.js"></script>
 ```
 
@@ -17,6 +16,8 @@ this.bindNode('file', node, file());
 // if you don't want to create variables
 this.bindNode('file', node, Matreshka.binders.file());
 ```
+
+The bundle can be downloaded at [gh-pages branch](https://github.com/matreshkajs/matreshka-binders-file/tree/gh-pages)
 
 -------------
 
