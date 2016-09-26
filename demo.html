@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <style>
+    body {
+     padding: 10%;
+    }
+    output {
+      font-family: monospace;
+      white-space: pre;
+    }
+
+    output:empty::after {
+      content: 'none';
+      color: #aaa;
+    }
+  </style>
+</head>
+  Input: <input type="file">
+  <br>
+  <br>
+  Output: <output></output>
+  <script src="https://matreshkajs.github.io/matreshka/matreshka.js">
+</script>
+<script src="matreshka-binders-file.min.js">
+</script>
+<script>
+const obj = {};
+Matreshka.bindNode(obj, 'x', 'input', Matreshka.binders.file('text'));
+Matreshka.bindNode(obj, 'x.readerResult', 'output');
+</script>
+</body>
+</html>
