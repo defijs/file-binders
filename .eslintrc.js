@@ -1,6 +1,6 @@
 module.exports = {
     root: true,
-    extends: 'airbnb',
+    extends: 'airbnb-base',
     rules: {
         indent: ['error', 4, { 'SwitchCase': 1 }],
         'no-var': 'error',
