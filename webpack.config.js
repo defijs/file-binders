@@ -5,17 +5,16 @@ const webpack = require('webpack');
 module.exports = {
 	devtool: 'source-map',
 	entry: './src/index',
-	externals,
 	output: {
 		path: `${__dirname}/bundle`,
 		filename: 'matreshka-binders-file.min.js',
 		libraryTarget: 'umd'
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
-				loaders: ['babel']
+				use: ['babel-loader']
 			}
 		]
 	},
