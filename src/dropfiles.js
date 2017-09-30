@@ -7,7 +7,7 @@ function createDropHandler({
 }) {
     return function dropHandler(event) {
         event.preventDefault();
-        const files = event.dataTransfer.files;
+        const { files } = event.dataTransfer;
 
         readFiles(files, methodName, callback);
     };
