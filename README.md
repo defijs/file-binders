@@ -1,6 +1,6 @@
 # file-binders [![npm version](https://badge.fury.io/js/file-binders.svg)](https://badge.fury.io/js/file-binders) [![Build Status](https://travis-ci.org/matreshkajs/file-binders.svg?branch=master)](https://travis-ci.org/matreshkajs/file-binders) [![Coverage Status](https://coveralls.io/repos/github/matreshkajs/file-binders/badge.svg?branch=master)](https://coveralls.io/github/matreshkajs/file-binders?branch=master)
 
-The module includes 3 binder creators for Matreshka.js and defi.js which allow to easily deal with files.
+The module includes 3 binder creators for Matreshka.js which allow to easily deal with files.
 
 ## Usage
 In browser environment these functions live at ``window.fileBinders`` object.
