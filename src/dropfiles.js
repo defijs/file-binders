@@ -16,7 +16,9 @@ function createDropHandler({
 function createDragoverHandler() {
     return function dragoverHandler(event) {
         event.preventDefault();
-        event.dataTransfer.dropEffect = 'copy'; // eslint-disable-line no-param-reassign
+        if (event.dataTransfer) {
+            event.dataTransfer.dropEffect = 'copy'; // eslint-disable-line no-param-reassign
+        }
     };
 }
 
