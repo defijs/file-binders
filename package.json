@@ -1,13 +1,13 @@
 {
-  "name": "matreshka-binders-file",
+  "name": "file-binders",
   "version": "0.0.0-auto",
   "scripts": {
     "test": "npm run unit && npm run lint",
     "unit": "babel-node node_modules/.bin/babel-istanbul cover test/index.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "upgrade": "ncu --upgradeAll && npm install",
+    "upgrade": "ncu --upgradeAll -x semantic-release && npm install",
     "lint": "eslint ./test ./src",
     "compile-npm": "babel src -d .",
-    "bundle": "webpack",
+    "bundle": "webpack --mode=production",
     "release-npm": "npm run compile-npm && npm publish",
     "release-bundle": "rimraf bundle && deploy-to-git",
     "semantic-release": "semantic-release pre && npm run release-bundle && npm run release-npm && semantic-release post",
@@ -15,7 +15,7 @@
   },
   "config": {
     "deployToGit": {
-      "repository": "https://$GH_TOKEN@github.com/matreshkajs/matreshka-binders-file.git",
+      "repository": "https://$GH_TOKEN@github.com/matreshkajs/file-binders.git",
       "branch": "gh-pages",
       "folder": "bundle",
       "script": "npm run bundle",
@@ -56,7 +56,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-istanbul": "^0.12.2",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "^7.1.4",
     "babel-plugin-check-es2015-constants": "^6.22.0",
     "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
     "babel-plugin-transform-es2015-block-scoping": "^6.26.0",
@@ -71,22 +71,19 @@
     "coveralls": "^3.0.0",
     "cz-simple-conventional-changelog": "0.0.1",
     "deploy-to-git": "0.1.5",
-    "eslint": "^4.8.0",
-    "eslint-config-airbnb-base": "^12.0.1",
-    "eslint-plugin-import": "^2.7.0",
-    "ghooks": "^2.0.0",
-    "jasmine": "^2.8.0",
-    "jsdom": "^11.2.0",
-    "makeelement": "0.0.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "ghooks": "^2.0.2",
+    "jasmine": "^3.1.0",
+    "jsdom": "^11.7.0",
+    "makeelement": "0.0.4",
     "matreshka": "^2.4.0",
     "ncp": "^2.0.0",
-    "npm-check-updates": "^2.12.1",
+    "npm-check-updates": "^2.14.1",
     "rimraf": "^2.6.2",
     "semantic-release": "^8.0.3",
     "validate-commit-msg": "^2.14.0",
-    "webpack": "^3.6.0"
-  },
-  "peerDependencies": {
-    "matreshka": "2.x"
+    "webpack": "^4.5.0"
   }
 }

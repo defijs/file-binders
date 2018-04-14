@@ -1,40 +1,38 @@
-# matreshka-binders-file [![npm version](https://badge.fury.io/js/matreshka-binders-file.svg)](https://badge.fury.io/js/matreshka-binders-file) [![Build Status](https://travis-ci.org/matreshkajs/matreshka-binders-file.svg?branch=master)](https://travis-ci.org/matreshkajs/matreshka-binders-file) [![Coverage Status](https://coveralls.io/repos/github/matreshkajs/matreshka-binders-file/badge.svg?branch=master)](https://coveralls.io/github/matreshkajs/matreshka-binders-file?branch=master)
+# file-binders [![npm version](https://badge.fury.io/js/file-binders.svg)](https://badge.fury.io/js/file-binders) [![Build Status](https://travis-ci.org/matreshkajs/file-binders.svg?branch=master)](https://travis-ci.org/matreshkajs/file-binders) [![Coverage Status](https://coveralls.io/repos/github/matreshkajs/file-binders/badge.svg?branch=master)](https://coveralls.io/github/matreshkajs/file-binders?branch=master)
 
-The module includes 3 binder creators which allow to easily deal with files.
+The module includes 3 binder creators for Matreshka.js and defi.js which allow to easily deal with files.
 
 ## Usage
-In **browser environment** (or whatever environment where ``Matreshka`` is global variable) these functions extend ``Matreshka.binders`` object.
+In browser environment these functions live at ``window.fileBinders`` object.
 ```html
-<script src="path/to/matreshka-binders-file.min.js"></script>
+<script src="path/to/file-binders.min.js"></script>
 ```
 
 ```js
-const { file, dropFiles, dragOver } = Matreshka.binders;
+const { file, dropFiles, dragOver } = fileBinders;
 // ...
 this.bindNode('file', node, file());
 
 // if you don't want to create variables
-this.bindNode('file', node, Matreshka.binders.file());
+this.bindNode('file', node, fileBinders.file());
 ```
 
-The bundle can be downloaded at [gh-pages branch](https://github.com/matreshkajs/matreshka-binders-file/tree/gh-pages)
+The bundle can be downloaded at [gh-pages branch](https://github.com/matreshkajs/file-binders/tree/gh-pages)
 
 -------------
 
-In **CJS environment** ``Matreshka.binders`` is not extended.
-
 ```
-npm install --save matreshka-binders-file
+npm install --save file-binders
 ```
 
 ```js
 // import all binders
-const { file, dropFiles, dragOver } = require('matreshka-binders-file');
+const { file, dropFiles, dragOver } = require('file-binders');
 
 // import only needed binders
-const file = require('matreshka-binders-file/file');
-const dropFiles = require('matreshka-binders-file/dropfiles');
-const dragOver = require('matreshka-binders-file/dragover');
+const file = require('file-binders/file');
+const dropFiles = require('file-binders/dropfiles');
+const dragOver = require('file-binders/dragover');
 
 // ...
 
