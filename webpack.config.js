@@ -3,7 +3,7 @@ module.exports = {
 	entry: './src/index',
 	output: {
 		path: `${__dirname}/bundle`,
-		filename: 'matreshka-binders-file.min.js',
+		filename: 'file-binders.min.js',
 		libraryTarget: 'umd',
 		library: 'fileBinders'
 	},
