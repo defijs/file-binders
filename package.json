@@ -13,6 +13,7 @@
     "release-bundle": "rimraf bundle && deploy-to-git",
     "release": "npm run release-bundle && npm run release-npm",
     "commit": "git-cz",
+    "reinstall": "rm -rf node_modules package-lock.json && npm i",
     "patch": "npm run unit && npm version patch && npm run release && npm publish && git push --tags",
     "minor": "npm run unit && npm version minor && npm run release && npm publish && git push --tags"
   },
