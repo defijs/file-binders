@@ -1,6 +1,6 @@
 {
   "name": "file-binders",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "scripts": {
     "test": "npm run cover && npm run lint",
     "cover": "babel-node node_modules/.bin/babel-istanbul cover test/index.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
