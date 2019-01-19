@@ -1,6 +1,6 @@
-# file-binders [![npm version](https://badge.fury.io/js/file-binders.svg)](https://badge.fury.io/js/file-binders) [![Build Status](https://travis-ci.org/matreshkajs/file-binders.svg?branch=master)](https://travis-ci.org/matreshkajs/file-binders) [![Coverage Status](https://coveralls.io/repos/github/matreshkajs/file-binders/badge.svg?branch=master)](https://coveralls.io/github/matreshkajs/file-binders?branch=master)
+# file-binders [![npm version](https://badge.fury.io/js/file-binders.svg)](https://badge.fury.io/js/file-binders) [![Build Status](https://travis-ci.org/defijs/file-binders.svg?branch=master)](https://travis-ci.org/defijs/file-binders) [![Coverage Status](https://coveralls.io/repos/github/defijs/file-binders/badge.svg?branch=master)](https://coveralls.io/github/defijs/file-binders?branch=master)
 
-The module includes 3 binder creators for Matreshka.js which allow to easily deal with files.
+The module includes 3 binder creators for defi.js which deal with files.
 
 ## Usage
 In browser environment these functions live at ``window.fileBinders`` object.
@@ -11,18 +11,18 @@ In browser environment these functions live at ``window.fileBinders`` object.
 ```js
 const { file, dropFiles, dragOver } = fileBinders;
 // ...
-this.bindNode('file', node, file());
+defi.bindNode(object, 'file', node, file());
 
 // if you don't want to create variables
-this.bindNode('file', node, fileBinders.file());
+defi.bindNode(object, 'file', node, fileBinders.file());
 ```
 
-The bundle can be downloaded at [gh-pages branch](https://github.com/matreshkajs/file-binders/tree/gh-pages)
+The bundle can be downloaded at [gh-pages branch](https://github.com/defijs/file-binders/tree/gh-pages)
 
 -------------
 
 ```
-npm install --save file-binders
+npm i file-binders
 ```
 
 ```js
@@ -36,7 +36,7 @@ const dragOver = require('file-binders/dragover');
 
 // ...
 
-this.bindNode('file', node, files());
+defi.bindNode(object, 'file', node, files());
 ```
 
 ## ``file(readAs)``
@@ -51,11 +51,11 @@ The file (native ``File``) or an array of files becomes the final value of the p
 
 ### Example
 ```js
-this.bindNode('myKey', '.my-file', file('dataURL'));
+defi.bindNode(object, 'myKey', '.my-file', file('dataURL'));
 // ... user changes input content
 // choosing my-image.png from file system ...
-this.on('change:myKey', function() {
-	console.log(this.myKey);
+defi.on(object, 'change:myKey', () => {
+	console.log(object.myKey);
 	// -->
 	// File
 	//	lastModified: 1383404384000
@@ -68,20 +68,19 @@ this.on('change:myKey', function() {
 });
 ```
 
-
 ## ``dropFiles(readAs)``
-Returns a binder which allows to drop files from a file manager to given element. After ``bindNode`` is called HTML block gets needed DOM event listeners (eg, "dragover" and "drop"). When user drops files from file manager into the block, the property gets an array of dropped files as its value. As like ``file`` the binder accepts one optional argument called ``readAs`` which says how the files need to be read by ``FileReader``: data URI, Blob... (the result of reading is placed in ``readerResult`` property of every file). If ``readAs`` isn't given, the property gets an array of files which wasn't read.
+Returns a binder which allows to drop files from a file manager to a given element. After ``bindNode`` is called HTML block gets needed DOM event listeners (eg, "dragover" and "drop"). When user drops files from file manager into the block, the property gets an array of dropped files as its value. As like ``file`` the binder accepts one optional argument called ``readAs`` which says how the files need to be read by ``FileReader``: data URI, Blob... (the result of reading is placed in ``readerResult`` property of every file). If ``readAs`` isn't given, the property gets an array of files which wasn't read.
 
 ### Arguments
 ``readAs`` [optional] (string) - the argument value can be ``"arrayBuffer"``, ``"binaryString"``, ``"dataURL"``, ``"text"``. The value depends on the presence of corresponding methods of the ``FileReader`` prototype.
 
 ### Example
 ```js
-this.bindNode('myKey', '.drop-area', dropFiles('dataURL'));
+defi.bindNode(object, 'myKey', '.drop-area', dropFiles('dataURL'));
 // ... user drops one file called
 // "my-image.png" into .drop-area block
-this.on('change:myKey', function() {
-	console.log(this.myKey[0]);
+defi.on(object, 'change:myKey', () => {
+	console.log(object.myKey[0]);
 	// -->
 	// File
 	//	lastModified: 1383404384000
@@ -95,25 +94,26 @@ this.on('change:myKey', function() {
 ```
 
 ## ``dragOver()``
-Makes given property equal to ``true`` when something is dragged over given node.
+Makes given property equal to ``true`` when something is dragged over a given node.
 
 ### Arguments
 none
 
 ### Examples
 ```js
-this.bindNode('myKey', '.my-node', dragOver());
-this.on('change:myKey', function() {
-	if(this.myKey) {
+defi.bindNode(object, 'myKey', '.my-node', dragOver());
+defi.on(object, 'change:myKey', function() {
+	if(object.myKey) {
 		console.log('something is dragging over .my-node');
 	} else {
 		console.log('nothing is dragged over the node');
 	}
 });
 ```
-Add dragovered class name when file (or another draggable object) is dragged over .my-node
+
+Add "dragovered" class name when file (or another draggable object) is dragged over .my-node
 
 ```js
-this.bindNode('myKey', '.my-node', dragOver());
-this.bindNode('myKey', '.my-node', className('dragovered'));
+defi.bindNode(object, 'myKey', '.my-node', dragOver());
+defi.bindNode(object, 'myKey', '.my-node', className('dragovered'));
 ```

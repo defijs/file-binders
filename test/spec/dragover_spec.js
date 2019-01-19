@@ -1,5 +1,5 @@
 import makeElement from 'makeelement';
-import bindNode from 'matreshka/bindnode';
+import bindNode from 'defi/bindnode';
 import dragOver from '../../src/dragover';
 
 describe('dragOver binder', () => {

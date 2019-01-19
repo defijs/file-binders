@@ -1,7 +1,7 @@
 import makeElement from 'makeelement';
-import bindNode from 'matreshka/bindnode';
-import unbindNode from 'matreshka/unbindnode';
-import on from 'matreshka/on';
+import bindNode from 'defi/bindnode';
+import unbindNode from 'defi/unbindnode';
+import on from 'defi/on';
 import file from '../../src/file';
 import createSpy from './createspy';
 
