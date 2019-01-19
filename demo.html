@@ -22,14 +22,14 @@
   <br>
   <br>
   Output: <output></output>
-  <script src="https://matreshkajs.github.io/matreshka/matreshka.js">
+  <script src="https://defijs.github.io/defi/defi.js">
 </script>
 <script src="file-binders.min.js">
 </script>
 <script>
 const obj = {};
-Matreshka.bindNode(obj, 'x', 'input', fileBinders.file('text'));
-Matreshka.bindNode(obj, 'x.readerResult', 'output');
+defi.bindNode(obj, 'x', 'input', fileBinders.file('text'));
+defi.bindNode(obj, 'x.readerResult', 'output');
 </script>
 </body>
 </html>
