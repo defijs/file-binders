@@ -1,4 +1,4 @@
-export default function dragOver() {
+module.exports = function dragOver() {
     return {
         on: 'dragover dragenter dragleave dragend drop',
         getValue({ domEvent }) {
@@ -8,4 +8,4 @@ export default function dragOver() {
         },
         setValue: null
     };
-}
+};

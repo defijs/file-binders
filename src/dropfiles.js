@@ -1,5 +1,5 @@
-import getFileReaderMethodName from './_get-filereader-method-name';
-import readFiles from './_read-files';
+const getFileReaderMethodName = require('./_get-filereader-method-name');
+const readFiles = require('./_read-files');
 
 function createDropHandler({
     callback,
@@ -22,7 +22,7 @@ function createDragoverHandler() {
     };
 }
 
-export default function dropFilesBinder(readAs) {
+module.exports = function dropFilesBinder(readAs) {
     const methodName = readAs ? getFileReaderMethodName(readAs) : null;
     let dropHandler;
     let dragoverHandler;
@@ -47,4 +47,4 @@ export default function dropFilesBinder(readAs) {
         },
         setValue: null
     };
-}
+};

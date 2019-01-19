@@ -1,5 +1,5 @@
-import getFileReaderMethodName from './_get-filereader-method-name';
-import readFiles from './_read-files';
+const getFileReaderMethodName = require('./_get-filereader-method-name');
+const readFiles = require('./_read-files');
 
 function createFileChangeHandler({
     callback,
@@ -16,7 +16,7 @@ function createFileChangeHandler({
     };
 }
 
-export default function fileBinder(readAs) {
+module.exports = function fileBinder(readAs) {
     const methodName = readAs ? getFileReaderMethodName(readAs) : null;
     let fileChangeHandler;
 
@@ -37,4 +37,4 @@ export default function fileBinder(readAs) {
         },
         setValue: null
     };
-}
+};

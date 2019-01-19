@@ -1,4 +1,4 @@
-export default function readFiles(files, fileReaderMethodName, callback) {
+module.exports = function readFiles(files, fileReaderMethodName, callback) {
     const { length } = files;
     const arrayOfFiles = Array(length);
     let j = 0;
@@ -39,4 +39,4 @@ export default function readFiles(files, fileReaderMethodName, callback) {
 
         callback(arrayOfFiles);
     }
-}
+};

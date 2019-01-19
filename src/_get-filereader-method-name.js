@@ -1,4 +1,4 @@
-export default function getFileReaderMethodName(readAs) {
+module.exports = function getFileReaderMethodName(readAs) {
     const { FileReader } = window;
     /* istanbul ignore if  */
     if (typeof FileReader === 'undefined') {
@@ -12,4 +12,4 @@ export default function getFileReaderMethodName(readAs) {
     }
 
     return methodName;
-}
+};

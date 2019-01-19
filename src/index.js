@@ -1,6 +1,6 @@
-import file from './file';
-import dropFiles from './dropfiles';
-import dragOver from './dragover';
+const file = require('./file');
+const dropFiles = require('./dropfiles');
+const dragOver = require('./dragover');
 
 // export these binders in CJS environment
 module.exports = {
