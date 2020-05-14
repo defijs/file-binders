@@ -1,3 +1,5 @@
+The repository is no longer updated. Defi is turned into a monorepo: https://github.com/finom/defi
+
 # file-binders [![npm version](https://badge.fury.io/js/file-binders.svg)](https://badge.fury.io/js/file-binders) [![Build Status](https://travis-ci.org/defijs/file-binders.svg?branch=master)](https://travis-ci.org/defijs/file-binders) [![Coverage Status](https://coveralls.io/repos/github/defijs/file-binders/badge.svg?branch=master)](https://coveralls.io/github/defijs/file-binders?branch=master)
 
 The module includes 3 binder creators for defi.js which deal with files.
